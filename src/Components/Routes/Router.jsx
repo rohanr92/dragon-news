@@ -2,6 +2,7 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router';
 import Root from '../Root/Root';
 import Home from '../HomePage/Home';
+import AllCategories from '../AllCategory/AllCategories';
 
 const router = createBrowserRouter([
   {
@@ -11,6 +12,10 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
+      },
+            {
+        path: '/all-categories/:id',
+        Component: AllCategories,
       }
     ]
   },
