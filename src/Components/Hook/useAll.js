@@ -1,22 +1,22 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
 
-const useCategory = () => {
+const useAll = () => {
 
-    let [category, setCategory] = useState();
-       const [loading, setLoading] = useState(true);
+    let [news, setNews] = useState();
+
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
 
-        axios('../categories.json')
-        .then(res => {setCategory(res.data)
+        axios('../news.json')
+        .then(res => {setNews(res.data)
             setLoading(false);
-
         })
 
 
-                    .catch(err => {
+        .catch(err => {
                 console.error("Error loading categories:", err);
                 setError(err);
                 setLoading(false);
@@ -24,8 +24,8 @@ const useCategory = () => {
 
 
     },[])
-return { category, loading, error };
+return { news, loading, error };
     
 }
 
-export default useCategory;
+export default useAll;
